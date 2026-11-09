@@ -1,4 +1,100 @@
 const STORAGE_KEY = 'vanta-cart';
+const PROFILE_KEY = 'vanta-profile';
+
+const getDefaultProfile = () => ({
+  fullName: 'Ariana Cole',
+  username: 'arianacole',
+  email: 'ariana@vanta.com',
+  perks: 'Early access + 10% off selected drops'
+});
+
+const getProfile = () => {
+  try {
+    const savedProfile = JSON.parse(localStorage.getItem(PROFILE_KEY));
+    return { ...getDefaultProfile(), ...(savedProfile || {}) };
+  } catch {
+    return getDefaultProfile();
+  }
+};
+
+const saveProfile = (profile) => {
+  localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+};
+
+const renderProfileSummary = () => {
+  const profile = getProfile();
+  const nameEl = document.getElementById('profileDisplayName');
+  const handleEl = document.getElementById('profileDisplayHandle');
+  const summaryEl = document.getElementById('profileSummary');
+  const avatarEl = document.querySelector('.profile-avatar');
+
+  if (nameEl) nameEl.textContent = profile.fullName;
+  if (handleEl) handleEl.textContent = `@${profile.username}`;
+
+  if (summaryEl) {
+    summaryEl.innerHTML = `
+      <p>Full name: ${profile.fullName}</p>
+      <p>Username: @${profile.username}</p>
+      <p>Email: ${profile.email}</p>
+      <p>Member perks: ${profile.perks}</p>
+    `;
+  }
+
+  if (avatarEl) {
+    const initials = profile.fullName.split(' ').filter(Boolean).slice(0, 2).map((part) => part[0]?.toUpperCase() || '').join('') || 'A';
+    avatarEl.textContent = initials;
+  }
+};
+
+const initProfileForm = () => {
+  const form = document.getElementById('profileForm');
+  if (!form) return;
+
+  const profile = getProfile();
+  const fullNameInput = form.querySelector('#fullName');
+  const usernameInput = form.querySelector('#username');
+  const emailInput = form.querySelector('#email');
+  const successMessage = document.getElementById('profileSuccess');
+
+  if (successMessage) {
+    successMessage.textContent = '';
+    successMessage.classList.remove('visible');
+  }
+
+  if (fullNameInput) fullNameInput.value = profile.fullName;
+  if (usernameInput) usernameInput.value = profile.username;
+  if (emailInput) emailInput.value = profile.email;
+
+  [fullNameInput, usernameInput, emailInput].forEach((field) => {
+    field?.addEventListener('input', () => {
+      if (successMessage) {
+        successMessage.textContent = '';
+        successMessage.classList.remove('visible');
+      }
+    });
+  });
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const nextProfile = {
+      fullName: fullNameInput.value.trim() || profile.fullName,
+      username: usernameInput.value.trim().replace(/^@/, '') || profile.username,
+      email: emailInput.value.trim() || profile.email,
+      perks: profile.perks
+    };
+
+    saveProfile(nextProfile);
+    renderProfileSummary();
+
+    if (successMessage) {
+      successMessage.textContent = 'Profile created successfully.';
+      successMessage.classList.add('visible');
+    }
+
+    form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+};
 
 const PRODUCT_DETAILS = {
   'shadow-hoodie': {
@@ -284,6 +380,48 @@ const initSwatchesAndSizes = () => {
   });
 };
 
+const initHeaderSearch = () => {
+  const toggles = document.querySelectorAll('.search-toggle');
+
+  toggles.forEach((toggle) => {
+    const panel = toggle.parentElement?.querySelector('.header-search');
+    const input = panel?.querySelector('input');
+    if (!panel || !input) return;
+
+    toggle.addEventListener('click', () => {
+      const isOpen = panel.classList.toggle('visible');
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+
+      if (isOpen) {
+        input.focus();
+      }
+    });
+
+    input.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        const term = input.value.trim();
+        if (!term) return;
+
+        const nextUrl = new URL('shop.html', window.location.href);
+        nextUrl.searchParams.set('q', term);
+        window.location.href = nextUrl.toString();
+      }
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    const clickedSearch = event.target.closest('.search-toggle') || event.target.closest('.header-search');
+    if (!clickedSearch) {
+      document.querySelectorAll('.header-search').forEach((panel) => panel.classList.remove('visible'));
+      document.querySelectorAll('.search-toggle').forEach((button) => {
+        button.classList.remove('active');
+        button.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+};
+
 const initWishlistButtons = () => {
   const wishlistButtons = document.querySelectorAll('[data-wishlist]');
 
@@ -427,6 +565,32 @@ const initProductCardNavigation = () => {
   });
 };
 
+const initShopSearch = () => {
+  const searchParams = new URLSearchParams(window.location.search);
+  const query = (searchParams.get('q') || searchParams.get('search') || '').trim().toLowerCase();
+  const shopInput = document.querySelector('.header-search input');
+
+  if (shopInput) {
+    shopInput.value = query;
+  }
+
+  const cards = document.querySelectorAll('.product-card');
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    const productName = (card.dataset.productName || card.querySelector('h3')?.textContent || '').toLowerCase();
+    const category = (card.dataset.category || '').toLowerCase();
+    const matches = !query || productName.includes(query) || category.includes(query);
+    card.classList.toggle('hidden', !matches);
+  });
+
+  const visibleCards = [...cards].filter((card) => !card.classList.contains('hidden'));
+  const productCount = document.querySelector('.shop-toolbar p');
+  if (productCount) {
+    productCount.textContent = query ? `Showing ${visibleCards.length} matching products` : `Showing ${visibleCards.length} products`;
+  }
+};
+
 const setYear = () => {
   const yearEl = document.getElementById('year');
   if (yearEl) {
@@ -437,10 +601,14 @@ const setYear = () => {
 initProductFilters();
 initAddToCartButtons();
 initSwatchesAndSizes();
+initHeaderSearch();
 initWishlistButtons();
 initSortMenu();
 initProductCardNavigation();
+initShopSearch();
 renderProductDetailPage();
 renderCartPage();
+renderProfileSummary();
+initProfileForm();
 setYear();
 updateCartCount();

@@ -29,6 +29,10 @@
         </nav>
 
         <div class="nav-actions">
+          <button class="search-toggle" type="button" aria-label="Open search" aria-expanded="false">Search</button>
+          <div class="header-search" aria-live="polite">
+            <input type="search" placeholder="Search VANTA" aria-label="Search VANTA" />
+          </div>
           <a class="profile-icon-btn" href="profile.html" aria-label="Profile page">
             <span class="profile-icon" aria-hidden="true"></span>
           </a>
@@ -45,8 +49,8 @@
         <aside class="profile-sidebar">
           <div class="profile-avatar">A</div>
           <div class="profile-user">
-            <h2>Ariana Cole</h2>
-            <p>@arianacole</p>
+            <h2 id="profileDisplayName">Ariana Cole</h2>
+            <p id="profileDisplayHandle">@arianacole</p>
           </div>
 
           <nav class="profile-side-nav" aria-label="Profile menu">
@@ -170,7 +174,26 @@
               <a href="#overview">Back</a>
             </div>
 
-            <div class="address-box">
+            <form id="profileForm" class="profile-form">
+              <div class="form-grid">
+                <label class="profile-field">
+                  <span>Full name</span>
+                  <input type="text" id="fullName" name="fullName" placeholder="Your full name" required />
+                </label>
+                <label class="profile-field">
+                  <span>Username</span>
+                  <input type="text" id="username" name="username" placeholder="@username" required />
+                </label>
+                <label class="profile-field full-width">
+                  <span>Email</span>
+                  <input type="email" id="email" name="email" placeholder="name@email.com" required />
+                </label>
+              </div>
+              <button class="primary-btn profile-submit" type="submit">Create profile</button>
+              <p class="profile-success" id="profileSuccess" aria-live="polite"></p>
+            </form>
+
+            <div class="address-box" id="profileSummary">
               <p>Full name: Ariana Cole</p>
               <p>Username: @arianacole</p>
               <p>Email: ariana@vanta.com</p>
