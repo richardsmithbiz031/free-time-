@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile | VANTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand-block" href="index.html" aria-label="VANTA home">
+          <span class="brand-mark">V</span>
+          <span class="brand-name">VANTA</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="product.html">Featured</a>
+          <a href="cart.html">Cart</a>
+          <a href="profile.html" class="active">Profile</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="profile-icon-btn" href="profile.html" aria-label="Profile page">
+            <span class="profile-icon" aria-hidden="true"></span>
+          </a>
+          <a class="cart-btn" href="cart.html" aria-label="Shopping cart">
+            Cart
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container profile-page">
+      <section class="profile-shell">
+        <aside class="profile-sidebar">
+          <div class="profile-avatar">A</div>
+          <div class="profile-user">
+            <h2>Ariana Cole</h2>
+            <p>@arianacole</p>
+          </div>
+
+          <nav class="profile-side-nav" aria-label="Profile menu">
+            <a class="active" href="#overview">Overview</a>
+            <a href="#orders">Orders</a>
+            <a href="#wishlist">Wishlist</a>
+            <a href="#addresses">Addresses</a>
+            <a href="#settings">Settings</a>
+          </nav>
+        </aside>
+
+        <div class="profile-content" id="overview">
+          <div class="profile-topbar">
+            <h1>My profile</h1>
+            <a class="profile-edit-btn" href="#settings">Edit profile</a>
+          </div>
+
+          <div class="profile-grid">
+            <article class="profile-card highlight-card">
+              <div class="card-label">Membership</div>
+              <div class="stat-stack">
+                <div class="stat-main">Gold</div>
+                <div class="big-copy">member<br />items</div>
+              </div>
+              <p class="card-note"><span>Unlocked:</span> early access, free shipping, and 10% off selected drops.</p>
+            </article>
+
+            <article class="profile-card">
+              <div class="card-label">Saved</div>
+              <div class="stat-stack">
+                <div class="stat-main">14</div>
+                <div class="big-copy">member<br />items</div>
+              </div>
+              <p class="card-note"><span>Your</span> wishlist is updated with the latest arrivals.</p>
+            </article>
+
+            <article class="profile-card">
+              <div class="card-label">Orders</div>
+              <div class="stat-stack">
+                <div class="stat-main">06</div>
+                <div class="big-copy">placed</div>
+              </div>
+              <p class="card-note"><span>Two</span> deliveries currently in transit.</p>
+            </article>
+          </div>
+
+          <div class="profile-panels">
+            <section class="profile-panel" id="orders">
+              <div class="panel-head">
+                <h3>Recent orders</h3>
+                <a href="shop.html">View all</a>
+              </div>
+
+              <ul class="order-list">
+                <li>
+                  <div>
+                    <strong>#VAN-2841</strong>
+                    <span>Shadow Zip Hoodie</span>
+                  </div>
+                  <span class="status shipped">Shipped</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>#VAN-2137</strong>
+                    <span>Signal Tee</span>
+                  </div>
+                  <span class="status delivered">Delivered</span>
+                </li>
+                <li>
+                  <div>
+                    <strong>#VAN-1985</strong>
+                    <span>Crossbody Sling</span>
+                  </div>
+                  <span class="status processing">Processing</span>
+                </li>
+              </ul>
+            </section>
+
+            <section class="profile-panel" id="wishlist">
+              <div class="panel-head">
+                <h3>Wishlist</h3>
+                <a href="shop.html">Browse</a>
+              </div>
+
+              <div class="wishlist-items">
+                <div class="wishlist-item">
+                  <div class="wishlist-thumb image-six"></div>
+                  <div>
+                    <strong>Drift Utility Coat</strong>
+                    <p>$140</p>
+                  </div>
+                </div>
+                <div class="wishlist-item">
+                  <div class="wishlist-thumb image-five"></div>
+                  <div>
+                    <strong>Monarch Fleece</strong>
+                    <p>$95</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <section class="profile-panel" id="addresses">
+            <div class="panel-head">
+              <h3>Default address</h3>
+              <a href="#settings">Edit</a>
+            </div>
+
+            <div class="address-box">
+              <p>Ariana Cole</p>
+              <p>48 Sunset Lane</p>
+              <p>Brooklyn, NY 11217</p>
+              <p>United States</p>
+            </div>
+          </section>
+
+          <section class="profile-panel" id="settings">
+            <div class="panel-head">
+              <h3>Create profile</h3>
+              <a href="#overview">Back</a>
+            </div>
+
+            <div class="address-box">
+              <p>Full name: Ariana Cole</p>
+              <p>Username: @arianacole</p>
+              <p>Email: ariana@vanta.com</p>
+              <p>Member perks: Early access + 10% off selected drops</p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <div class="brand-block footer-brand">
+            <span class="brand-mark">V</span>
+            <span class="brand-name">VANTA</span>
+          </div>
+          <p>Streetwear essentials for modern living.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">Support</a>
+        </div>
+
+        <p class="copyright">© <span id="year"></span> VANTA</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

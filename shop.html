@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | VANTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand-block" href="index.html" aria-label="VANTA home">
+          <span class="brand-mark">V</span>
+          <span class="brand-name">VANTA</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="shop.html" class="active">Shop</a>
+          <a href="product.html">Featured</a>
+          <a href="cart.html">Cart</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="profile-icon-btn" href="profile.html" aria-label="Profile page">
+            <span class="profile-icon" aria-hidden="true"></span>
+          </a>
+          <a class="cart-btn" href="cart.html" aria-label="Shopping cart">
+            Cart
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero shop-hero">
+        <div class="container page-hero-inner">
+          <p class="eyebrow">All essentials</p>
+          <h1>Shop the drop.</h1>
+        </div>
+      </section>
+
+      <section class="container shop-layout">
+        <aside class="shop-sidebar">
+          <div class="sidebar-block">
+            <h3>Categories</h3>
+            <button class="filter-btn active" type="button" data-filter="all">All</button>
+            <button class="filter-btn" type="button" data-filter="hoodies">Hoodies</button>
+            <button class="filter-btn" type="button" data-filter="jackets">Jackets</button>
+            <button class="filter-btn" type="button" data-filter="tees">Tees</button>
+            <button class="filter-btn" type="button" data-filter="accessories">Accessories</button>
+          </div>
+
+          <div class="sidebar-block">
+            <h3>Pickup</h3>
+            <label class="checkbox-row"><input type="checkbox" /> In-store pickup</label>
+            <label class="checkbox-row"><input type="checkbox" /> Express shipping</label>
+          </div>
+        </aside>
+
+        <div class="shop-content">
+          <div class="shop-toolbar">
+            <p>Showing 8 products</p>
+            <div class="sort-menu">
+              <button class="sort-toggle" type="button" aria-expanded="false" aria-label="Sort products">Featured</button>
+              <div class="sort-panel" aria-live="polite">
+                <button class="sort-option active" type="button" data-sort="featured">Featured</button>
+                <button class="sort-option" type="button" data-sort="low-high">Price: Low to High</button>
+                <button class="sort-option" type="button" data-sort="high-low">Price: High to Low</button>
+                <button class="sort-option" type="button" data-sort="newest">Newest</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-grid shop-grid">
+            <article class="product-card" data-category="hoodies" data-product-id="shadow-hoodie" data-product-name="Shadow Zip Hoodie" data-product-price="89">
+              <div class="product-image image-one"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Hoodies</span><span>$89</span></div>
+                <h3>Shadow Zip Hoodie</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="shadow-hoodie" data-name="Shadow Zip Hoodie" data-price="89">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=shadow-hoodie" data-product-link="shadow-hoodie">Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="jackets" data-product-id="stormshell-bomber" data-product-name="Stormshell Bomber" data-product-price="129">
+              <div class="product-image image-two"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Jackets</span><span>$129</span></div>
+                <h3>Stormshell Bomber</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="stormshell-bomber" data-name="Stormshell Bomber" data-price="129">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=stormshell-bomber" data-product-link="stormshell-bomber">Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="tees" data-product-id="signal-tee" data-product-name="Signal Tee" data-product-price="42">
+              <div class="product-image image-three"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Tees</span><span>$42</span></div>
+                <h3>Signal Tee</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="signal-tee" data-name="Signal Tee" data-price="42">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=signal-tee" data-product-link="signal-tee">Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="accessories" data-product-id="crossbody-sling" data-product-name="Crossbody Sling" data-product-price="32">
+              <div class="product-image image-four"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Accessories</span><span>$32</span></div>
+                <h3>Crossbody Sling</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="crossbody-sling" data-name="Crossbody Sling" data-price="32">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=crossbody-sling" data-product-link="crossbody-sling">Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="hoodies" data-product-id="monarch-fleece" data-product-name="Monarch Fleece" data-product-price="95">
+              <div class="product-image image-five"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Hoodies</span><span>$95</span></div>
+                <h3>Monarch Fleece</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="monarch-fleece" data-name="Monarch Fleece" data-price="95">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=monarch-fleece" data-product-link="monarch-fleece">Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="jackets" data-product-id="drift-coat" data-product-name="Drift Utility Coat" data-product-price="140">
+              <div class="product-image image-six"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Jackets</span><span>$140</span></div>
+                <h3>Drift Utility Coat</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="drift-coat" data-name="Drift Utility Coat" data-price="140">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=drift-coat" data-product-link="drift-coat">Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="tees" data-product-id="night-shift-tee" data-product-name="Night Shift Tee" data-product-price="38">
+              <div class="product-image image-seven"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Tees</span><span>$38</span></div>
+                <h3>Night Shift Tee</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="night-shift-tee" data-name="Night Shift Tee" data-price="38">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=night-shift-tee" data-product-link="night-shift-tee">Details</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="product-card" data-category="accessories" data-product-id="transit-cap" data-product-name="Transit Cap" data-product-price="28">
+              <div class="product-image image-eight"></div>
+              <div class="product-info">
+                <div class="product-meta"><span>Accessories</span><span>$28</span></div>
+                <h3>Transit Cap</h3>
+                <div class="card-actions">
+                  <button class="buy-btn" type="button" data-product-id="transit-cap" data-name="Transit Cap" data-price="28">Add to cart</button>
+                  <a class="mini-link" href="product.html?id=transit-cap" data-product-link="transit-cap">Details</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <div class="brand-block footer-brand">
+            <span class="brand-mark">V</span>
+            <span class="brand-name">VANTA</span>
+          </div>
+          <p>Streetwear essentials for modern living.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">Support</a>
+        </div>
+
+        <p class="copyright">© <span id="year"></span> VANTA</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

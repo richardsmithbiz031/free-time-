@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shadow Zip Hoodie | VANTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand-block" href="index.html" aria-label="VANTA home">
+          <span class="brand-mark">V</span>
+          <span class="brand-name">VANTA</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="product.html" class="active">Featured</a>
+          <a href="cart.html">Cart</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="profile-icon-btn" href="profile.html" aria-label="Profile page">
+            <span class="profile-icon" aria-hidden="true"></span>
+          </a>
+          <a class="cart-btn" href="cart.html" aria-label="Shopping cart">
+            Cart
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container product-page">
+      <div class="product-gallery">
+        <div class="gallery-main image-one"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb image-two"></div>
+          <div class="thumb image-three"></div>
+          <div class="thumb image-five"></div>
+        </div>
+      </div>
+
+      <div class="product-details">
+        <p class="eyebrow dark">New arrival</p>
+        <h1>Shadow Zip Hoodie</h1>
+        <div class="price-row">
+          <span class="price">$89</span>
+          <span class="stock">In stock</span>
+        </div>
+
+        <p class="product-description">
+          Built with a premium fleece blend and a clean zip-front silhouette, this hoodie brings
+          warmth, movement, and sharp streetwear presence to every layer.
+        </p>
+
+        <div class="option-block">
+          <span class="label">Color</span>
+          <div class="swatches">
+            <button class="swatch active" type="button" style="background:#1e1e21" aria-label="Black"></button>
+            <button class="swatch" type="button" style="background:#a8b7bf" aria-label="Stone"></button>
+            <button class="swatch" type="button" style="background:#d7a62d" aria-label="Gold"></button>
+          </div>
+        </div>
+
+        <div class="option-block">
+          <span class="label">Size</span>
+          <div class="sizes">
+            <button class="size-btn active" type="button">S</button>
+            <button class="size-btn" type="button">M</button>
+            <button class="size-btn" type="button">L</button>
+            <button class="size-btn" type="button">XL</button>
+          </div>
+        </div>
+
+        <div class="purchase-actions">
+          <button class="primary-btn" type="button" data-product-id="shadow-hoodie" data-name="Shadow Zip Hoodie" data-price="89">Add to cart</button>
+          <button class="secondary-btn" type="button" data-wishlist aria-pressed="false">Wishlist</button>
+        </div>
+
+        <ul class="feature-list">
+          <li>Heavyweight cotton fleece</li>
+          <li>Relaxed oversized fit</li>
+          <li>Double-layered hood and zip placket</li>
+        </ul>
+      </div>
+    </main>
+
+    <section class="container related-products">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow dark">You may also like</p>
+          <h2>Complete the set</h2>
+        </div>
+      </div>
+
+      <div class="product-grid related-grid">
+        <article class="product-card" data-product-id="drift-coat" data-product-name="Drift Utility Coat" data-product-price="140">
+          <div class="product-image image-six"></div>
+          <div class="product-info">
+            <div class="product-meta"><span>Jackets</span><span>$140</span></div>
+            <h3>Drift Utility Coat</h3>
+            <button class="buy-btn" type="button" data-product-id="drift-coat" data-name="Drift Utility Coat" data-price="140">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="signal-tee" data-product-name="Signal Tee" data-product-price="42">
+          <div class="product-image image-three"></div>
+          <div class="product-info">
+            <div class="product-meta"><span>Tees</span><span>$42</span></div>
+            <h3>Signal Tee</h3>
+            <button class="buy-btn" type="button" data-product-id="signal-tee" data-name="Signal Tee" data-price="42">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="product-card" data-product-id="transit-cap" data-product-name="Transit Cap" data-product-price="28">
+          <div class="product-image image-eight"></div>
+          <div class="product-info">
+            <div class="product-meta"><span>Accessories</span><span>$28</span></div>
+            <h3>Transit Cap</h3>
+            <button class="buy-btn" type="button" data-product-id="transit-cap" data-name="Transit Cap" data-price="28">Add to cart</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <div class="brand-block footer-brand">
+            <span class="brand-mark">V</span>
+            <span class="brand-name">VANTA</span>
+          </div>
+          <p>Streetwear essentials for modern living.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">Support</a>
+        </div>
+
+        <p class="copyright">© <span id="year"></span> VANTA</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

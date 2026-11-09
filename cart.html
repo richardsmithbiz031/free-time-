@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart | VANTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand-block" href="index.html" aria-label="VANTA home">
+          <span class="brand-mark">V</span>
+          <span class="brand-name">VANTA</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="product.html">Featured</a>
+          <a href="cart.html" class="active">Cart</a>
+          <a href="profile.html">Profile</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="profile-icon-btn" href="profile.html" aria-label="Profile page">
+            <span class="profile-icon" aria-hidden="true"></span>
+          </a>
+          <a class="cart-btn" href="cart.html" aria-label="Shopping cart">
+            Cart
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container cart-page">
+      <section class="cart-header">
+        <div>
+          <p class="eyebrow dark">Checkout</p>
+          <h1>Your bag</h1>
+        </div>
+        <a class="text-link" href="shop.html">Continue shopping</a>
+      </section>
+
+      <div class="cart-layout">
+        <div class="cart-items" id="cartItems"></div>
+
+        <aside class="summary-box">
+          <h3>Order summary</h3>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="subtotal">$0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Shipping</span>
+            <strong>$12</strong>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total</span>
+            <strong id="total">$0</strong>
+          </div>
+          <button class="primary-btn full-width" type="button">Proceed to checkout</button>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <div>
+          <div class="brand-block footer-brand">
+            <span class="brand-mark">V</span>
+            <span class="brand-name">VANTA</span>
+          </div>
+          <p>Streetwear essentials for modern living.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">Support</a>
+        </div>
+
+        <p class="copyright">© <span id="year"></span> VANTA</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
